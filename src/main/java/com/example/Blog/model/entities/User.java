@@ -1,32 +1,26 @@
 package com.example.Blog.model.entities;
 
-import lombok.Data;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
+
+@Entity
 @Getter
 @Setter
-@Entity
-@NoArgsConstructor
-public class PostComment {
+public class User {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String comment;
+    private String userName;
+    private String email;
+    private String password;
 
     @Embedded
     private AuditEntity auditEntity = new AuditEntity();
-
-    @ManyToOne
-    @JoinColumn(name = "postId")
-    private Post post;
-
 
 
 }
